@@ -21,3 +21,24 @@ template "/etc/yum.repos.d/mongodb-org-3.4.repo"  do
   )
 
 end
+
+
+
+# Install the MongoDB packages and associated tools.
+
+package "mongodb-org" do
+
+  action :install
+
+end
+
+
+
+# Start MongoDB.
+# ensure that MongoDB will start following a system reboot
+
+service "mongod" do
+
+  action [:start, :enable]
+
+end
